@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<addon addon_id="ThemeHouse_AnonymousPosts" title="[⌂] Anonymous Posts and Threads" version_string="1.0.3 Patch 1" version_id="1447094555" url="http://xf.themehouse.io" install_callback_class="ThemeHouse_Install" install_callback_method="install" uninstall_callback_class="ThemeHouse_Install" uninstall_callback_method="uninstall">
+  <admin_navigation/>
+  <admin_permissions/>
+  <admin_style_properties/>
+  <admin_templates/>
+  <admin_template_modifications/>
+  <code_events/>
+  <code_event_listeners>
+    <listener event_id="controller_pre_dispatch" execute_order="10" callback_class="ThemeHouse_Listener_ControllerPreDispatch" callback_method="controllerPreDispatch" active="1" hint="" description=""/>
+    <listener event_id="file_health_check" execute_order="10" callback_class="ThemeHouse_AnonymousPosts_Listener_FileHealthCheck" callback_method="fileHealthCheck" active="1" hint="" description=""/>
+    <listener event_id="init_dependencies" execute_order="10" callback_class="ThemeHouse_Listener_InitDependencies" callback_method="initDependencies" active="1" hint="" description=""/>
+    <listener event_id="load_class" execute_order="10" callback_class="ThemeHouse_AnonymousPosts_Listener_LoadClass" callback_method="loadClassModel" active="0" hint="XenForo_Model_Forum" description="XenForo_Model_Forum" compatibility_switch="1"/>
+    <listener event_id="load_class" execute_order="10" callback_class="ThemeHouse_AnonymousPosts_Listener_LoadClass" callback_method="loadClassDataWriter" active="0" hint="XenForo_DataWriter_DiscussionMessage_Post" description="XenForo_DataWriter_DiscussionMessage_Post (For XenForo 1.2 and above)" compatibility_switch="1"/>
+    <listener event_id="load_class" execute_order="10" callback_class="ThemeHouse_AnonymousPosts_Listener_LoadClass" callback_method="loadClassController" active="0" hint="XenForo_ControllerPublic_Member" description="XenForo_ControllerPublic_Member (For XenForo 1.2 and above)" compatibility_switch="1"/>
+    <listener event_id="load_class" execute_order="10" callback_class="ThemeHouse_AnonymousPosts_Listener_LoadClass" callback_method="loadClassController" active="0" hint="XenForo_ControllerPublic_Forum" description="XenForo_ControllerPublic_Forum (For XenForo 1.2 and above)" compatibility_switch="1"/>
+    <listener event_id="load_class" execute_order="10" callback_class="ThemeHouse_AnonymousPosts_Listener_LoadClass" callback_method="loadClassModel" active="0" hint="XenForo_Model_Thread" description="XenForo_Model_Thread (For XenForo 1.2 and above)" compatibility_switch="1"/>
+    <listener event_id="load_class" execute_order="10" callback_class="ThemeHouse_AnonymousPosts_Listener_LoadClass" callback_method="loadClassController" active="0" hint="XenForo_ControllerPublic_Thread" description="XenForo_ControllerPublic_Thread (For XenForo 1.2 and above)" compatibility_switch="1"/>
+    <listener event_id="load_class" execute_order="10" callback_class="ThemeHouse_AnonymousPosts_Listener_LoadClass" callback_method="loadClassModel" active="0" hint="XenForo_Model_Post" description="XenForo_Model_Post (For XenForo 1.2 and above)" compatibility_switch="1"/>
+    <listener event_id="load_class" execute_order="10" callback_class="ThemeHouse_AnonymousPosts_Listener_LoadClass" callback_method="loadClassController" active="0" hint="XenForo_ControllerPublic_Search" description="XenForo_ControllerPublic_Search (For XenForo 1.2 and above)" compatibility_switch="1"/>
+    <listener event_id="load_class" execute_order="10" callback_class="ThemeHouse_AnonymousPosts_Listener_LoadClass" callback_method="loadClassController" active="0" hint="XenForo_ControllerPublic_FindNew" description="XenForo_ControllerPublic_FindNew (For XenForo 1.2 and above)" compatibility_switch="1"/>
+    <listener event_id="load_class" execute_order="10" callback_class="ThemeHouse_AnonymousPosts_Listener_LoadClass" callback_method="loadClassController" active="0" hint="XenForo_ControllerPublic_Watched" description="XenForo_ControllerPublic_Watched (For XenForo 1.2 and above)" compatibility_switch="1"/>
+    <listener event_id="load_class" execute_order="10" callback_class="ThemeHouse_AnonymousPosts_Listener_LoadClass" callback_method="loadClassController" active="0" hint="XenForo_ControllerPublic_RecentActivity" description="XenForo_ControllerPublic_RecentActivity (For XenForo 1.2 and above)" compatibility_switch="1"/>
+    <listener event_id="load_class" execute_order="10" callback_class="ThemeHouse_AnonymousPosts_Listener_LoadClass" callback_method="loadClassDataWriter" active="0" hint="XenForo_DataWriter_Discussion_Thread" description="XenForo_DataWriter_Discussion_Thread (For XenForo 1.2 and above)" compatibility_switch="1"/>
+    <listener event_id="load_class_controller" execute_order="10" callback_class="ThemeHouse_AnonymousPosts_Listener_LoadClass" callback_method="loadClassController" active="1" hint="" description="(For XenForo 1.1 and below)" compatibility_switch="1"/>
+    <listener event_id="load_class_datawriter" execute_order="10" callback_class="ThemeHouse_AnonymousPosts_Listener_LoadClass" callback_method="loadClassDataWriter" active="1" hint="" description="(For XenForo 1.1 and below)" compatibility_switch="1"/>
+    <listener event_id="load_class_model" execute_order="10" callback_class="ThemeHouse_AnonymousPosts_Listener_LoadClass" callback_method="loadClassModel" active="1" hint="" description="(For XenForo 1.1 and below)" compatibility_switch="1"/>
+    <listener event_id="template_post_render" execute_order="10" callback_class="ThemeHouse_AnonymousPosts_Listener_TemplatePostRender" callback_method="templatePostRender" active="1" hint="" description=""/>
+  </code_event_listeners>
+  <cron/>
+  <email_templates/>
+  <email_template_modifications/>
+  <optiongroups>
+    <group group_id="th_anonymousPosts" display_order="2000" debug_only="0"/>
+    <option option_id="th_anonymousPosts_anonymousPosts" edit_format="onoff" data_type="boolean" can_backup="1">
+      <default_value>1</default_value>
+      <edit_format_params/>
+      <sub_options/>
+      <relation group_id="th_anonymousPosts" display_order="20"/>
+    </option>
+    <option option_id="th_anonymousPosts_anonymousThreads" edit_format="onoff" data_type="boolean" can_backup="1">
+      <default_value>1</default_value>
+      <edit_format_params/>
+      <sub_options/>
+      <relation group_id="th_anonymousPosts" display_order="10"/>
+    </option>
+    <option option_id="th_anonymousPosts_defaultAnonymous" edit_format="onoff" data_type="boolean" can_backup="1">
+      <default_value>0</default_value>
+      <edit_format_params/>
+      <sub_options/>
+      <relation group_id="th_anonymousPosts" display_order="100"/>
+    </option>
+  </optiongroups>
+  <permissions>
+    <permission_groups/>
+    <permissions>
+      <permission permission_group_id="forum" permission_id="postAnonymousReply" permission_type="flag" default_value="unset" interface_group_id="forumPermissions" display_order="11"/>
+      <permission permission_group_id="forum" permission_id="postAnonymousThread" permission_type="flag" default_value="unset" interface_group_id="forumPermissions" display_order="10"/>
+      <permission permission_group_id="general" permission_id="seeAnonymousPostAuthor" permission_type="flag" default_value="unset" interface_group_id="generalModeratorPermissions" display_order="250"/>
+      <permission permission_group_id="thAffiliatePermissions" permission_id="earnAffiliatePoints" permission_type="flag" depend_permission_id="accessAffiliateSystem" default_value="unset" interface_group_id="thAffiliatePermissions" display_order="10"/>
+    </permissions>
+    <interface_groups/>
+  </permissions>
+  <phrases>
+    <phrase title="option_group_th_anonymousPosts" version_id="1442854492" version_string="1.0.2"><![CDATA[[⌂] Anonymous Posts]]></phrase>
+    <phrase title="option_group_th_anonymousPosts_description" version_id="1442854492" version_string="1.0.2"><![CDATA[Options for the [⌂] Anonymous Posts add-on.]]></phrase>
+    <phrase title="option_th_anonymousPosts_anonymousPosts" version_id="10002001" version_string="1.0.2 Dev Build 1"><![CDATA[Allow Anonymous Posts]]></phrase>
+    <phrase title="option_th_anonymousPosts_anonymousPosts_explain" version_id="10002001" version_string="1.0.2 Dev Build 1"><![CDATA[If selected users will be able to post anonymously, only administrators can see anonymous post details.]]></phrase>
+    <phrase title="option_th_anonymousPosts_anonymousThreads" version_id="10002001" version_string="1.0.2 Dev Build 1"><![CDATA[Allow Anonymous Threads]]></phrase>
+    <phrase title="option_th_anonymousPosts_anonymousThreads_explain" version_id="10002001" version_string="1.0.2 Dev Build 1"><![CDATA[If selected users will be able to post threads anonymously, only administrators can see anonymous thread starter details.]]></phrase>
+    <phrase title="option_th_anonymousPosts_defaultAnonymous" version_id="10002001" version_string="1.0.2 Dev Build 1"><![CDATA[Default to Anonymous]]></phrase>
+    <phrase title="option_th_anonymousPosts_defaultAnonymous_explain" version_id="10002001" version_string="1.0.2 Dev Build 1"><![CDATA[If ticked all posts and threads created will be made anonymously and the checkbox upon thread/post creation will be hidden.]]></phrase>
+    <phrase title="permission_forum_postAnonymousReply" version_id="10002001" version_string="1.0.2 Dev Build 1"><![CDATA[Post anonymous replies]]></phrase>
+    <phrase title="permission_forum_postAnonymousThread" version_id="10002001" version_string="1.0.2 Dev Build 1"><![CDATA[Post anonymous thread]]></phrase>
+    <phrase title="permission_general_seeAnonymousPostAuthor" version_id="10002001" version_string="1.0.2 Dev Build 1"><![CDATA[See anonymous post author]]></phrase>
+    <phrase title="permission_thAffiliatePermissions_earnAffiliatePoints" version_id="1442855089" version_string="1.0.2"><![CDATA[Earn affiliate points]]></phrase>
+    <phrase title="th_anonymous_anonymousposts" version_id="10002001" version_string="1.0.2 Dev Build 1"><![CDATA[Anonymous]]></phrase>
+    <phrase title="th_anonymous_posts_explain_anonymousposts" version_id="10002001" version_string="1.0.2 Dev Build 1"><![CDATA[Anonymous posts do not contain posters details.]]></phrase>
+    <phrase title="th_anonymous_post_anonymousposts" version_id="10002001" version_string="1.0.2 Dev Build 1"><![CDATA[Anonymous Post]]></phrase>
+    <phrase title="th_anonymous_threads_explain_anonymousposts" version_id="10002001" version_string="1.0.2 Dev Build 1"><![CDATA[Anonymous threads do not contain thread starters details.]]></phrase>
+    <phrase title="th_anonymous_thread_anonymousposts" version_id="10002001" version_string="1.0.2 Dev Build 1"><![CDATA[Anonymous Thread]]></phrase>
+    <phrase title="th_posted_by_guest_or_anonymous_anonymousposts" version_id="10002001" version_string="1.0.2 Dev Build 1"><![CDATA[This was posted by anoymously or by a guest who does not have a profile to view.]]></phrase>
+  </phrases>
+  <route_prefixes/>
+  <style_properties/>
+  <templates>
+    <template title="th_anonymous_post_anonymousposts" version_id="10002001" version_string="1.0.2 Dev Build 1"><![CDATA[<xen:if is="{$xenOptions.th_anonymousPosts_anonymousPosts} && !{$xenOptions.th_anonymousPosts_defaultAnonymous} && {$canPostAnonymousReply}">
+<dl class="ctrlUnit">
+<dt></dt>
+	<dd><ul>
+	<li>
+		<label for="ctrl_anonymous_post"><input type="checkbox" name="anonymous_post" value="1" id="ctrl_anonymous_post" {xen:checked {$thread.anonymous_post}} /> {xen:phrase th_anonymous_post_anonymousposts}</label>
+		<input type="hidden" name="_set[anonymous_post]" value="1" />
+		<p class="hint">{xen:phrase th_anonymous_posts_explain_anonymousposts}</p>
+	</li>
+	</ul></dd>
+</xen:if>]]></template>
+    <template title="th_anonymous_thread_anonymousposts" version_id="10002001" version_string="1.0.2 Dev Build 1"><![CDATA[<xen:if is="{$xenOptions.th_anonymousPosts_anonymousThreads} && !{$xenOptions.th_anonymousPosts_defaultAnonymous} && {$canPostAnonymousThread}">
+	<li>
+		<label for="ctrl_anonymous_thread"><input type="checkbox" name="anonymous_thread" value="1" id="ctrl_anonymous_thread" {xen:checked {$thread.anonymous_thread}} /> {xen:phrase th_anonymous_thread_anonymousposts}</label>
+		<input type="hidden" name="_set[anonymous_thread]" value="1" />
+		<p class="hint">{xen:phrase th_anonymous_threads_explain_anonymousposts}</p>
+	</li>
+</xen:if>]]></template>
+    <template title="th_forum_anonymousposts" version_id="10002001" version_string="1.0.2 Dev Build 1"><![CDATA[<xen:set var="$anonymousPost">0</xen:set>
+<xen:if is="{$forum.lastPost.anonymous_post}">
+	{xen:phrase th_anonymous_anonymousposts}
+	<xen:set var="$anonymousPost">1</xen:set>
+</xen:if>
+<xen:if is="{xen:helper isIgnored, $forum.last_post_user_id} && !{$anonymousPost}">
+{xen:phrase ignored_member}
+<xen:set var="$isIgnoredMember">1</xen:set>
+</xen:if>
+<xen:if is="!{$anonymousPost} && !{$isIgnoredMember}">
+<xen:username user="$forum.lastPost" />
+</xen:if>]]></template>
+    <template title="th_thread_anonymousposts" version_id="10002001" version_string="1.0.2 Dev Build 1"><![CDATA[<xen:set var="$anonymousPost">0</xen:set>
+<xen:if is="{$thread.last_post_anonymous}">
+	{xen:phrase th_anonymous_anonymousposts}
+	<xen:set var="$anonymousPost">1</xen:set>
+</xen:if>
+<xen:if is="{xen:helper isIgnored, $thread.last_post_user_id} && !{$anonymousPost}">
+{xen:phrase ignored_member}
+<xen:set var="$isIgnoredMember">1</xen:set>
+</xen:if>
+<xen:if is="!{$anonymousPost} && !{$isIgnoredMember}">
+<xen:username user="$thread.lastPostInfo" />
+</xen:if>]]></template>
+  </templates>
+  <public_template_modifications>
+    <modification template="footer" modification_key="th_copyrightNotice_anonymousPosts" description="Copyright notice for [⌂] Anonymous Posts and Threads" execution_order="1" enabled="1" action="callback">
+      <find><![CDATA[/{xen:phrase (?:xenforo|extra)_copyright}/]]></find>
+      <replace><![CDATA[ThemeHouse_Listener_InitDependencies::copyrightNotice]]></replace>
+    </modification>
+    <modification template="message_user_info" modification_key="th_messageUserInfoAvatar_anonymousposts" description="Removes user avatar where required" execution_order="10" enabled="1" action="preg_replace">
+      <find><![CDATA[/<xen:avatar user="\$user" size="(.*?)" img="true" \/>/]]></find>
+      <replace><![CDATA[<xen:if is="{$post.anonymous_post} && !{$isQuickReply}">
+<xen:avatar user="$anonymousUser" size="$1" forcetype="default" img="true" />
+<xen:else/>
+$0
+</xen:if>]]></replace>
+    </modification>
+    <modification template="message_user_info" modification_key="th_messageUserInfo_anonymousposts" description="Removes user info where required" execution_order="10" enabled="1" action="preg_replace">
+      <find><![CDATA[#(<xen:if is="!{\$isQuickReply}">.*</xen:if>)#s]]></find>
+      <replace><![CDATA[<xen:if is="{$post.anonymous_post} && !{$isQuickReply}">
+<h3 class="userText">
+	{xen:phrase th_anonymous_anonymousposts}
+	<xen:if is="{$canSeeAnonymousPostAuthor}"><br>
+		{xen:helper username, $post}
+	</xen:if>
+</h3>
+<xen:else/>
+${0}
+</xen:if>]]></replace>
+    </modification>
+    <modification template="message" modification_key="th_message_remove_signature_anonymousPosts" description="Remove signature from anonymous posts" execution_order="10" enabled="1" action="str_replace">
+      <find><![CDATA[{$visitor.content_show_signature}]]></find>
+      <replace><![CDATA[$0 && !{$message.anonymous_post}]]></replace>
+    </modification>
+    <modification template="node_forum_level_2" modification_key="th_nodeForumLevel2_anonymousposts" description="Removes user details if required." execution_order="10" enabled="1" action="preg_replace">
+      <find><![CDATA[#(<span class="lastThreadUser">)(.*)(</span>)#Us]]></find>
+      <replace><![CDATA[${1}
+<xen:include template="th_forum_anonymousposts" />
+${3}]]></replace>
+    </modification>
+    <modification template="post" modification_key="th_post_anonymousposts" description="Removes author information if required" execution_order="10" enabled="1" action="preg_replace">
+      <find><![CDATA[#(<xen:if is="{\$post.canInlineMod}">)(.*</span>)#Us]]></find>
+      <replace><![CDATA[<xen:if is="{$post.anonymous_post}">
+<xen:if is="{$post.canInlineMod}"><input type="checkbox" name="posts[]" value="{$post.post_id}" class="InlineModCheck item" data-target="#post-{$post.post_id}" title="{xen:phrase select_this_post_by_x, 'name={xen:phrase th_anonymous_anonymousposts}'}" /></xen:if>
+<span class="item muted">
+<span class="authorEnd">{xen:phrase th_anonymous_anonymousposts},</span>
+<xen:else />
+${0}
+</xen:if>]]></replace>
+    </modification>
+    <modification template="thread_fields_status" modification_key="th_threadFieldsStatus_anonymousposts" description="Adds anonymous thread button to form" execution_order="10" enabled="1" action="preg_replace">
+      <find><![CDATA[#(</xen:contentcheck>)#Us]]></find>
+      <replace><![CDATA[<xen:include template="th_anonymous_thread_anonymousposts" />
+${0}]]></replace>
+    </modification>
+    <modification template="thread_list_item" modification_key="th_threadListItemAvatar_anonymousposts" description="Removes avatar if required" execution_order="10" enabled="1" action="preg_replace">
+      <find><![CDATA[#(<xen:avatar user="\$thread" size="s" img="true" />)#Us]]></find>
+      <replace><![CDATA[<xen:if is="{$thread.anonymous_thread}">
+<xen:avatar user="$anonymousUser" size="s" forcetype="default" img="true" />
+<xen:else/>
+${0}
+</xen:if>]]></replace>
+    </modification>
+    <modification template="thread_list_item" modification_key="th_threadListItemThread_anonymousposts" description="Removes user details from thread info if required" execution_order="10" enabled="1" action="preg_replace">
+      <find><![CDATA[#(<xen:username user="\$thread" title="{xen:phrase thread_starter}" />)#Us]]></find>
+      <replace><![CDATA[<xen:if is="{$thread.anonymous_thread}">
+{xen:phrase th_anonymous_anonymousposts}
+<xen:else/>
+<xen:username user="$thread" title="{xen:phrase thread_starter}" />
+</xen:if>]]></replace>
+    </modification>
+    <modification template="thread_list_item" modification_key="th_threadListItem_anonymousposts" description="Removes last message info if required" execution_order="10" enabled="1" action="preg_replace">
+      <find><![CDATA[#(<dl class="lastPostInfo">\s*<dt>)(.*)(</dt>)#Us]]></find>
+      <replace><![CDATA[${1}
+<xen:include template="th_thread_anonymousposts" />
+${3}]]></replace>
+    </modification>
+    <modification template="thread_reply" modification_key="th_threadReply_anonymousposts" description="Adds anonymous post button if needed" execution_order="10" enabled="1" action="preg_replace">
+      <find><![CDATA[#(<dd><ul>.*</ul></dd>)#Us]]></find>
+      <replace><![CDATA[${0}
+<xen:include template="th_anonymous_post_anonymousposts" />]]></replace>
+    </modification>
+    <modification template="thread_view" modification_key="th_threadView_anonymousposts" description="Alters thread breadcrumbs if required" execution_order="10" enabled="1" action="preg_replace">
+      <find><![CDATA[#(<xen:description>.*)('name={xen:helper username, \$thread}')(.*</xen:description>)#Us]]></find>
+      <replace><![CDATA[<xen:if is="{$thread.anonymous_thread}">
+<xen:description>
+	{xen:phrase discussion_in_x_started_by_y_date_z,
+		'forum=<a href="{xen:link forums, $forum}">{$forum.title}</a>',
+		'name={xen:helper username, $anonymousUser}',
+		'date=<a href="{xen:link threads, $thread}">{xen:datetime $thread.post_date, html}</a>'}
+</xen:description>
+<xen:else/>
+${0}
+</xen:if>]]></replace>
+    </modification>
+  </public_template_modifications>
+  <bb_code_media_sites/>
+  <bb_codes/>
+</addon>
